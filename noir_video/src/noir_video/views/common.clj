@@ -14,7 +14,7 @@
 (defpartial video-item [{:keys [id title path]}]
     [:li {:id id} ;; maps define HTML attributes
         [:h3 title]
-        [:video 
+        [:video {:controls "true"}
          [:source {:src path
                    :type "video/mp4; codecs='avc1.42E01E, mp4a.40.2'"}]]]) ;; add a class
 
