@@ -1,21 +1,23 @@
 (ns noir_video.views.common
   (:use [noir.core :only [defpartial]]
-        [hiccup.page :only [include-css html5]]
+        [hiccup.page :only [include-css include-js html5]]
         [hiccup.form]))
 
 (defpartial layout [& content]
             (html5
               [:head
                [:title "noir_video"]
-               (include-css "/css/reset.css")]
+               (include-css "/css/reset.css")
+               (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js")
+               (include-js "/js/video.js")]
               [:body
                [:div#wrapper
                 content]]))
 
 (defpartial video-item [{:keys [id title path]}]
-    [:li {:id id} ;; maps define HTML attributes
+    [:li ;; maps define HTML attributes
         [:h3 title]
-        [:video {:controls "true"}
+        [:video {:id id, :controls "true"}
          [:source {:src path
                    :type "video/mp4; codecs='avc1.42E01E, mp4a.40.2'"}]]]) ;; add a class
 

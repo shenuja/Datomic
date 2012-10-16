@@ -16,11 +16,13 @@
            (let [items [{:id "Video1"
               :title "Sample Video"
               :path "/lib/mine.mp4"},
-                 {:id "Video1"
-              :title "Sample Video"
+                 {:id "Video2"
+              :title "Video2"
               :path "/lib/web.mp4"}]]
            (common/layout
-             [:h1 "Video list!"[:p "logged in user - "[:span (:username (session/get :user))]]]
+             [:h1 "Video list!"
+              [:p "logged in user - "
+               [:span (:username (session/get :user))]]]
              (common/video-list items)))
          (resp/redirect "/login")
          ))
