@@ -17,5 +17,6 @@
 
 (defpage [:post "/login"] {:as user}
   (if (user/login! user)
-    (resp/redirect "/videos")
+;    (resp/redirect "/videos")
+    (resp/json noir_video.models.user/results)
     (render "/login" user)))
