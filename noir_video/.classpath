@@ -12,11 +12,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="target/classes">
-		<attributes>
-			<attribute name="optional" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="ccw.LEININGEN_CONTAINER"/>
 	<classpathentry kind="lib" path="classes"/>
 	<classpathentry kind="output" path="classes"/>

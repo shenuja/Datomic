@@ -1,6 +1,8 @@
 (ns noir_video.views.welcome
   (:require [noir_video.views.common :as common]
-            [noir.content.getting-started])
+            [noir.content.getting-started]
+            [noir.response :as resp]
+            [noir.session :as session])
   (:use [noir.core :only [defpage]]))
 
 (defpage "/welcome" []
@@ -9,7 +11,9 @@
 
 
 (defpage "/videos" []
-         (let [items [{:id "Video1"
+        (if (session/get :user)
+         (do [:p "logged in user - "[:span (:username (session/get :user))]]
+           (let [items [{:id "Video1"
               :title "Sample Video"
               :path "/lib/mine.mp4"},
                  {:id "Video1"
@@ -18,4 +22,7 @@
            (common/layout
              [:h1 "Video list!"]
              (common/video-list items))))
+         (resp/redirect "/login")
+         ))
+
 

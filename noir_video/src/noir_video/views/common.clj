@@ -1,6 +1,7 @@
 (ns noir_video.views.common
   (:use [noir.core :only [defpartial]]
-        [hiccup.page :only [include-css html5]]))
+        [hiccup.page :only [include-css html5]]
+        [hiccup.form]))
 
 (defpartial layout [& content]
             (html5
@@ -25,3 +26,8 @@
 (video-list [{:id "Video1"
               :title "Sample Video"
               :path "lib/web.mp4"}])
+
+
+(defpartial user-fields [{:keys [username]}]
+  (label "username" "Username: ")
+  (text-field "username" username))
