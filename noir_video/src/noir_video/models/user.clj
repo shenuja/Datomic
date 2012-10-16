@@ -5,4 +5,7 @@
 (defn login! [{:keys [username] :as user}]
   (session/put! :user {:username username}))
 
+(defn logged-in? []
+  (session/get :user))
+
 
