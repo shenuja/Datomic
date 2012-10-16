@@ -7,4 +7,7 @@
   (def results (datomic.api/q '[:find ?entity :where [?entity :db/doc "hello world"]] (datomic.api/db noir_video.models/conn)))  
   (session/put! :user {:username username}))
 
+(defn logged-in? []
+  (session/get :user))
+
 
