@@ -11,6 +11,9 @@
          (common/layout
            [:p "Welcome to noir_video"]))
 
+(defpage "/logout" []
+  (users/logout!)
+  (resp/redirect "/login"))
 
 (defpage "/videos" []
         (if (users/logged-in?)
@@ -30,7 +33,7 @@
 
 (defpage "/video/play/:id" {:keys [id]}
   (if-let [video (videos/get-item id)]
-     (video/play)
+     (videos/play)
     (common/layout
      [:h3 "Post not found"])))
 

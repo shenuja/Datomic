@@ -1,0 +1,11 @@
+[
+ {:db/id #db/id[:db.part/user -10001], :user/name "subhash"}
+ {:db/id #db/id[:db.part/user -10002], :user/name "shenuja"}
+
+ {:db/id #db/id[:db.part/user -20001], :video/title "Yosemite Park"}
+ {:db/id #db/id[:db.part/user -20002], :video/title "Bear cubs"}
+ 
+{:db/id #db/id[:db.part/user], :action/actor #db/id[:db.part/user -10001],:action/type :action.type/login}
+{:db/id #db/id[:db.part/user], :action/actor #db/id[:db.part/user -10001],:action/type :action.type/play, :action/object #db/id[:db.part/user -20001]}
+{:db/id #db/id[:db.part/user], :action/actor #db/id[:db.part/user -10002],:action/type :action.type/login}
+]

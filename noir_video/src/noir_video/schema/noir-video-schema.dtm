@@ -1,0 +1,47 @@
+[
+ ;; user
+ {:db/id #db/id[db.part/db]
+  :db/ident :user/name
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/fulltext true
+  :db/doc "User's name"
+  :db.install/_attribute :db.part/db}
+ 
+ ;; video
+ {:db/id #db/id[db.part/db]
+  :db/ident :video/title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/fulltext true
+  :db/doc "Video's title"
+  :db.install/_attribute :db.part/db}
+ 
+ ;; action
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :action/actor
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The actor's name"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :action/object
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The object of the action"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :action/type
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The type of action"
+  :db.install/_attribute :db.part/db}
+
+ ;; action/type enum values
+ [:db/add #db/id[:db.part/user] :db/ident :action.type/login]
+ [:db/add #db/id[:db.part/user] :db/ident :action.type/play]
+ 
+ ]
