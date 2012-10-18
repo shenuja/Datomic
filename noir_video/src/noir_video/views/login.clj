@@ -2,7 +2,8 @@
   (:require [noir_video.views.common :as common]
             [noir_video.models.user :as users]
             [noir.session :as session]
-            [noir.response :as resp])
+            [noir.response :as resp]
+            [clojure.pprint :as p])
   (:use [noir.core :only [defpage render]]
         [hiccup.form]))
 

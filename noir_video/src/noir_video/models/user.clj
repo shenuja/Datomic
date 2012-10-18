@@ -4,7 +4,14 @@
             [noir_video.models :as n]))
 
 (defn login! [{:keys [username] :as user}]
-  (d/transact n/conn [["db/add" (d/tempid "db.part/user") "user/name" username]])  
+  (def results (d/q '[:find ?u  :where [?u :user/name username]] (d/db n/conn)))
+  (def userid (ffirst results))
+  (if (not userid)
+    (let []
+      (d/transact n/conn [["db/add" (d/tempid "db.part/user") "user/name" username]])
+      (def results (d/q '[:find ?u :where [?u :user/name username]] (d/db n/conn)))
+      (def userid (ffirst results))
+    ))
   (def results (d/q '[:find ?u ?n :where [?u :user/name ?n]] (d/db n/conn)))
   (session/put! :user {:username username}))
 
