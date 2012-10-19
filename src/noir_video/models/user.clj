@@ -4,7 +4,7 @@
             [noir_video.models :as n]))
 
 (defn login! [{:keys [username] :as user}]
-  (def results (d/q '[:find ?u  :where [?u :user/name username]] (d/db n/conn)))
+  (def results (d/q (str "[:find ?u  :where [?u :user/name \"" username "\"]]") (d/db n/conn)))
   (def userid (ffirst results))
   (if (not userid)
     (let []
