@@ -2,18 +2,10 @@
   (:require [datomic.api :as d]
             [noir_video.models :as n]))
 
-(defn all-videos 
-  ;(def videos (d/q '[:find ?v ?t :where [?v :video/title ?t]] (d/db n/conn)))
-  ;(map video-item videos)
-   ([{ :title "Horsetail Falls"
-    :path "/lib/Horsetail Falls.mp4"
-   },
-   { :title "Yosemite Bears"
-    :path "/lib/Yosemite Bears.mp4"
-    },
-    {:title "Yosemite Intro"
-    :path "/lib/Yosemite Intro.mp4"
-    }])
+(defn all-videos []
+  (defn foo[a] {:id (first a) :title (second a) :path (str "/lib/" (second a) ".mp4")})
+  (def videos (d/q '[:find ?v ?t :where [?v :video/title ?t]] (d/db n/conn)))
+  (map foo videos)
   )
 
 (defn video-item [item]
