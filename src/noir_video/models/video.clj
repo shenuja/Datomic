@@ -1,5 +1,5 @@
-(ns noir_video.models.video)
-(:require [datomic.api :as d]
+(ns noir_video.models.video
+  (:require [datomic.api :as d]
             [noir_video.models :as n]))
 
 (defn all-videos 
