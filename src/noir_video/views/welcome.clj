@@ -11,10 +11,14 @@
   (users/data)
   (def all_usernames (apply str (interpose ", " users/all_users)))
   (def all_videotitles (apply str (interpose ", " users/all_videos)))
-  (def all_actions (apply str (interpose ", " users/all_actions)))
+  (def all_logins (apply str (interpose ", " users/all_logins)))
+  (def all_plays (apply str (interpose ", " users/all_plays)))
+  (def all_pauses (apply str (interpose ", " users/all_pauses)))
   (common/layout [:p (str "Users: " all_usernames)]
                  [:p (str "Videos: " all_videotitles)]
-                 [:p (str "Logins by: " all_actions)]))
+                 [:p (str "Logins by: " all_logins)]
+                 [:p (str "Played by: " all_plays)]
+                 [:p (str "Paused by: " all_pauses)]))
 
 
 (defpage "/logout" []
@@ -32,9 +36,13 @@
          ))
 
 (defpage "/video/play/:id" {:keys [id]}
-  (if-let [video (videos/get-item id)]
-     (videos/play)
-    (common/layout
-     [:h3 "Post not found"])))
+  (println "video/play")
+  (videos/play id)
+  (resp/status 200 "ok"))
+
+(defpage "/video/pause/:id" {:keys [id]}
+  (println "video/pause")
+  (videos/pause id)
+  (resp/status 200 "ok"))
 
 

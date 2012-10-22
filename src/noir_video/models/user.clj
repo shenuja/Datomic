@@ -29,6 +29,8 @@
 (defn data []
   (def all_users (d/q '[:find ?n :where [?u :user/name ?n]] (d/db n/conn)))
   (def all_videos (d/q '[:find ?t :where [?v :video/title ?t]] (d/db n/conn)))
-  (def all_actions (d/q '[:find ?n  :where [?a :action/type :action.type/login] [?a :action/actor ?u] [?u :user/name ?n]] (d/db n/conn)))
+  (def all_logins (d/q '[:find ?n  :where [?a :action/type :action.type/login] [?a :action/actor ?u] [?u :user/name ?n]] (d/db n/conn)))
+  (def all_plays (d/q '[:find ?n ?t  :where [?a :action/type :action.type/play] [?a :action/actor ?u] [?u :user/name ?n] [?a :action/object ?v] [?v :video/title ?t]] (d/db n/conn)))
+  (def all_pauses (d/q '[:find ?n ?t  :where [?a :action/type :action.type/pause] [?a :action/actor ?u] [?u :user/name ?n] [?a :action/object ?v] [?v :video/title ?t]] (d/db n/conn)))
   
   )

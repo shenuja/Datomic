@@ -43,5 +43,6 @@
  ;; action/type enum values
  [:db/add #db/id[:db.part/user] :db/ident :action.type/login]
  [:db/add #db/id[:db.part/user] :db/ident :action.type/play]
+ [:db/add #db/id[:db.part/user] :db/ident :action.type/pause]
  
  ]
