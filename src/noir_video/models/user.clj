@@ -15,7 +15,9 @@
       (def userid (ffirst results))
       (println (str "new " userid))
     ))
-  (d/transact n/conn [["db/add" (d/tempid "db.part/user") "action/actor" userid "action/type" "action.type/login"]])
+;  (d/transact n/conn [["db/add" (d/tempid "db.part/user") "action/actor" userid "action/type" "action.type/login"]])
+  @(d/transact n/conn [{:db/id (d/tempid :db.part/user) :action/actor userid :action/type :action.type/login}])
+
   (session/put! :user {:username username :userid userid}))
 
 (defn logged-in? []
@@ -27,6 +29,6 @@
 (defn data []
   (def all_users (d/q '[:find ?n :where [?u :user/name ?n]] (d/db n/conn)))
   (def all_videos (d/q '[:find ?t :where [?v :video/title ?t]] (d/db n/conn)))
-  (def all_actions (d/q '[:find ?n ?t :where [?a :action/type ?t] [?a :action/actor ?u] [?u :user/name ?n]] (d/db n/conn)))
+  (def all_actions (d/q '[:find ?n  :where [?a :action/type :action.type/login] [?a :action/actor ?u] [?u :user/name ?n]] (d/db n/conn)))
   
   )

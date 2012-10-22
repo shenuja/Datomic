@@ -14,7 +14,7 @@
   (def all_actions (apply str (interpose ", " users/all_actions)))
   (common/layout [:p (str "Users: " all_usernames)]
                  [:p (str "Videos: " all_videotitles)]
-                 [:p (str "Actions: " all_actions)]))
+                 [:p (str "Logins by: " all_actions)]))
 
 
 (defpage "/logout" []
