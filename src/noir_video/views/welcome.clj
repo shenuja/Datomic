@@ -17,12 +17,7 @@
 
 (defpage "/videos" []
         (if (users/logged-in?)
-           (let [items [{:id "Video1"
-              :title "Sample Video"
-              :path "/lib/mine.mp4"},
-                 {:id "Video2"
-              :title "Video2"
-              :path "/lib/web.mp4"}]]
+           (let [items videos/all-videos]
            (common/layout
              [:h1 "Video list!"
               [:p "logged in user - "

@@ -20,5 +20,3 @@
 
 (defn logout! []
   (session/remove! :user))
-
-
