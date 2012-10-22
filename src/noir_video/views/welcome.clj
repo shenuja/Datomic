@@ -8,8 +8,14 @@
   (:use [noir.core :only [defpage]]))
 
 (defpage "/welcome" []
-         (common/layout
-           [:p "Welcome to noir_video"]))
+  (users/data)
+  (def all_usernames (apply str (interpose ", " users/all_users)))
+  (def all_videotitles (apply str (interpose ", " users/all_videos)))
+  (def all_actions (apply str (interpose ", " users/all_actions)))
+  (common/layout [:p (str "Users: " all_usernames)]
+                 [:p (str "Videos: " all_videotitles)]
+                 [:p (str "Actions: " all_actions)]))
+
 
 (defpage "/logout" []
   (users/logout!)
