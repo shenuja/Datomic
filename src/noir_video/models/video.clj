@@ -3,18 +3,6 @@
             [noir_video.models :as n]))
 
 (defn all-videos 
-  ([{
-    :title "Horsetail Falls"
-    :path "/lib/Horsetail Falls.mp4"
-   },
-   {
-    :title "Yosemite Bears"
-    :path "/lib/Yosemite Bears.mp4"
-    },
-    {
-    :title "Yosemite Intro"
-    :path "/lib/Yosemite Intro.mp4"
-    }])
   )
 
 (defn get-by-name [name]
