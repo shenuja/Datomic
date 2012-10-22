@@ -30,5 +30,3 @@
   (def all_actions (d/q '[:find ?n ?t :where [?a :action/type ?t] [?a :action/actor ?u] [?u :user/name ?n]] (d/db n/conn)))
   
   )
-
-

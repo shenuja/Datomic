@@ -25,10 +25,6 @@
     [:ul#videoItems ;; set the id attribute
         (map video-item items)])
 
-(video-list [{:id "Video1"
-              :title "Sample Video"
-              :path "lib/web.mp4"}])
-
 
 (defpartial user-fields [{:keys [username]}]
   (label "username" "Username: ")
