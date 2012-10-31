@@ -8,8 +8,12 @@
               [:head
                [:title "noir_video"]
                (include-css "/css/reset.css")
-               (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js")
+               (include-css "/css/bootstrap.css")
+               (include-css "/css/bootstrap-responsive.css")
+               (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+               (include-js "/js/bootstrap.min.js")
                (include-js "/js/video.js")]
+               [:meta {:name "viewport", :content "width=device-width, initial-scale=1.0"}]
               [:body
                [:div#wrapper
                 content]]))
