@@ -22,7 +22,7 @@
                   [:div.container
                    [:a.btn.btn-navbar
                     [:span.icon-bar]]
-                  [:a.brand "Yosemite Park"]
+                  [:a.brand "Image Park"]
                    [:div.nav-collapse
                     [:ul.nav
                      [:li.active

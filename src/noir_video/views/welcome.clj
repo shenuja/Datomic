@@ -15,10 +15,11 @@
   (def all_plays (apply str (interpose ", " users/all_plays)))
   (def all_pauses (apply str (interpose ", " users/all_pauses)))
   (common/layout [:p (str "Users: " all_usernames)]
-                 [:p (str "Videos: " all_videotitles)]
+                 [:p (str "Images: " all_videotitles)]
                  [:p (str "Logins by: " all_logins)]
-                 [:p (str "Played by: " all_plays)]
-                 [:p (str "Paused by: " all_pauses)]))
+                 [:p (str "Clicked by: " all_plays)]
+                 ;[:p (str "Paused by: " all_pauses)]
+                 ))
 
 
 (defpage "/logout" []
@@ -28,7 +29,7 @@
 (defpage "/videos" []
         (if (users/logged-in?)
            (common/layout
-             [:h1 "Video list!"
+             [:h1 "Image list!"
               [:p "logged in user - "
                [:span (:username (session/get :user))]]]
              (common/video-list (videos/all-videos)))
