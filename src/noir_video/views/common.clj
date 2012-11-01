@@ -23,7 +23,7 @@
         [:h3 title]
         [:video {:id id, :controls "true"}
          [:source {:src path
-                   :type "video/mp4"}]]]) ;; add a class
+                   :type "video/mp4; codecs='avc1.42E01E, mp4a.40.2'"}]]]) ;; add a class
 
 (defpartial video-list [items]
     [:ul#videoItems ;; set the id attribute
