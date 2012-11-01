@@ -18,12 +18,17 @@
                [:div#wrapper
                 content]]))
 
+;(defpartial video-item [{:keys [id title path]}]
+;    [:li ;; maps define HTML attributes
+;        [:h3 title]
+;        [:video {:id id, :controls "true"}
+;         [:source {:src path
+;                   :type "video/mp4"}]]]) ;; add a class
+
 (defpartial video-item [{:keys [id title path]}]
     [:li ;; maps define HTML attributes
         [:h3 title]
-        [:video {:id id, :controls "true"}
-         [:source {:src path
-                   :type "video/mp4"}]]]) ;; add a class
+        [:img {:id id, :src path}]]) ;; add a class
 
 (defpartial video-list [items]
     [:ul#videoItems ;; set the id attribute

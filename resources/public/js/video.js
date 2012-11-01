@@ -13,6 +13,13 @@ $(function(){
 		});
 		return false;
 	});
+	$("img").bind('click', function(){
+		alert('CLICK event to server');
+		$.ajax({
+			url: "/video/play/"+this.id
+		});
+		return false;
+	});
 	
 });
 

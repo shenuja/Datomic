@@ -45,4 +45,8 @@
   (videos/pause id)
   (resp/status 200 "ok"))
 
+(defpage [:get "/GetFile"] {:keys [file]}
+         (with-open [file (clojure.java.io/input-stream  (str "resources/public/lib/" file))]
+           (resp/set-headers {"Content-Type" "text/plain"} file)))
+
 
