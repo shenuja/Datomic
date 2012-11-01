@@ -8,8 +8,12 @@
               [:head
                [:title "noir_video"]
                (include-css "/css/reset.css")
-               (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js")
+               (include-css "/css/bootstrap.css")
+               (include-css "/css/bootstrap-responsive.css")
+               (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+               (include-js "/js/bootstrap.min.js")
                (include-js "/js/video.js")]
+               [:meta {:name "viewport", :content "width=device-width, initial-scale=1.0"}]
               [:body
                [:div#wrapper
                 content]]))
@@ -19,7 +23,7 @@
         [:h3 title]
         [:video {:id id, :controls "true"}
          [:source {:src path
-                   :type "video/mp4; codecs='avc1.42E01E, mp4a.40.2'"}]]]) ;; add a class
+                   :type "video/mp4"}]]]) ;; add a class
 
 (defpartial video-list [items]
     [:ul#videoItems ;; set the id attribute
