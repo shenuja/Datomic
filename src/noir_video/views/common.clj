@@ -12,11 +12,29 @@
                (include-css "/css/bootstrap-responsive.css")
                (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
                (include-js "/js/bootstrap.min.js")
-               (include-js "/js/video.js")]
+               (include-js "/js/video.js")
                [:meta {:name "viewport", :content "width=device-width, initial-scale=1.0"}]
+               [:style "body { padding-top: 60px; }"]]
               [:body
-               [:div#wrapper
-                content]]))
+                              (list
+                [:div.navbar.navbar-fixed-top {"data-toggle" "collapse" "data-target" ".nav-collapse"}
+                 [:div.navbar-inner
+                  [:div.container
+                   [:a.btn.btn-navbar
+                    [:span.icon-bar]]
+                  [:a.brand "Yosemite Park"]
+                   [:div.nav-collapse
+                    [:ul.nav
+                     [:li.active
+                      [:a {"href" "#"} "Home"]]
+                     [:li
+                      [:a {"href" "/welcome"} "Event Log"]]
+                     [:li
+                      [:a {"href" "/videos"} "Images"]]
+                     [:li
+                      [:a {"href" "/logout"} "Logout"]]]]]]]
+                [:div.container content] 
+               )]))
 
 ;(defpartial video-item [{:keys [id title path]}]
 ;    [:li ;; maps define HTML attributes

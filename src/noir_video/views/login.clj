@@ -7,6 +7,9 @@
   (:use [noir.core :only [defpage render]]
         [hiccup.form]))
 
+(defpage "/" []
+  (resp/redirect "/login"))
+
 (defpage "/login" {:as user}
          (common/layout
            (if (users/logged-in?)
