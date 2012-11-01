@@ -4,7 +4,7 @@
             [noir.session :as session]))
 
 (defn all-videos []
-  (defn foo[a] {:id (first a) :title (second a) :path (str "/lib/" (second a) ".mp4")})
+  (defn foo[a] {:id (first a) :title (second a) :path (str "/lib/" (second a) ".m4v")})
   (def videos (d/q '[:find ?v ?t :where [?v :video/title ?t]] (d/db n/conn)))
   (map foo videos)
   )
