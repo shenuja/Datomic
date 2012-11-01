@@ -4,9 +4,9 @@
 
 {:db/id #db/id[:db.part/user -20001], :video/title "Yosemite Bears"}
 {:db/id #db/id[:db.part/user -20002], :video/title "Yosemite Intro"}
-{:db/id #db/id[:db.part/user -20002], :video/title "Horsetail Falls"}
+{:db/id #db/id[:db.part/user -20003], :video/title "Horsetail Falls"}
 
-{:db/id #db/id[:db.part/user -20001], :video/title "Apple Demo"}
+{:db/id #db/id[:db.part/user -20004], :video/title "Apple Demo"}
 
  
 {:db/id #db/id[:db.part/user], :action/actor #db/id[:db.part/user -10001],:action/type :action.type/login}
