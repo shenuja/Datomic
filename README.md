@@ -25,6 +25,19 @@ Though this project pretends to do video analytics using clojure/noir/datomic, t
 4. Analytics: The view /welcome invokes user/data to query analytical data from datomic 
 
 
+## Tryst with data modeling
+
+- We need simple models for user, video and action so that we can record stuff like 'subhash login', 'subhash play lolcats' etc
+- User and video are straightforward. Action is slightly tricky because it has to point to User and Video entities. Apparently, that is done by specifying ``:db/valueType :db.type/ref`` in the schema
+- Initial fixtures would require us to create a new user and also an action that points to this user. This is done by creating the user object specifying a temporary id and using the same while pointing the action to this new user.
+
+```
+{:db/id #db/id[:db.part/user -10001], :user/name "subhash"}
+{:db/id #db/id[:db.part/user], :action/actor #db/id[:db.part/user -10001],:action/type :action.type/login}
+```
+
+
+
 ## False starts and hiccups
 
 1. Datomic schema is a wee-bit tricky until one gets used to 
