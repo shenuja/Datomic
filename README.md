@@ -56,3 +56,7 @@ Coming from the SQL world, we would expect that this query give us the entities 
 
 The implicit join frees you from bothering about inherent data models and instead focus on the real world relationship between users, their names and their actions. The key bindings are useful in pulling interesting information without having to query further
 
+### Historical data
+
+Datomic is a neat solution when you handle historical data because it does NOT update-in-place. Instead, it maintains time stamps with each transaction, so you can go back in the past or speculate the future at will. For example, you can record every login action of a user and when queried, to returns the latest as per the specified current time. Trouble strikes when you want all of history in a query. For example, we haven't yet figure out how to query all logins ever by a specific user
+
