@@ -15,7 +15,7 @@ Though this project pretends to do video analytics using clojure/noir/datomic, t
 
 ## Live example
 
-[[Testing-live]]
+https://github.com/shenuja/Datomic/wiki/Testing-live
 
 
 ## Logic flow
