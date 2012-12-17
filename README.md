@@ -45,13 +45,13 @@ Though this project pretends to do video analytics using clojure/noir/datomic, t
 Suppose we want to find all users who have logged in (in an application that records all user activities)
 
 ```
-  :find ?u :where [?a :action/type :action.type/login] [?a :action/actor ?u]]
+  :find ?u :where [?a :action/type :action.type/login] [?a :action/actor ?u]
 ```
 
 Coming from the SQL world, we would expect that this query give us the entities directly. But what it does is to return the entity ids and you are expected to use a separate API, 'entity' which takes an entity id and returns a map of all entity values. I think the creators of Datomic instead expect you to query thus:
 
 ```
-  :find ?n :where [?a :action/type :action.type/login] [?a :action/actor ?u] [?u :user/name ?n]]
+  :find ?n :where [?a :action/type :action.type/login] [?a :action/actor ?u] [?u :user/name ?n]
 ```
 
 The implicit join frees you from bothering about inherent data models and instead focus on the real world relationship between users, their names and their actions. The key bindings are useful in pulling interesting information without having to query further
